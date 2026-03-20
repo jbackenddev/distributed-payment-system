@@ -1,4 +1,4 @@
-package com.marcos.payment.model;
+package com.marcos.common.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

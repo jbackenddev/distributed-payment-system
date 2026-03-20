@@ -11,3 +11,13 @@ spring:
 
     properties:
       spring.json.add.type.headers: false
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/payments
+    username: postgres
+    password: postgres
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true

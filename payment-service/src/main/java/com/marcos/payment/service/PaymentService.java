@@ -1,7 +1,7 @@
 package com.marcos.payment.service;
 
+import com.marcos.common.model.PaymentEvent;
 import com.marcos.payment.dto.PaymentRequest;
-import com.marcos.payment.model.PaymentEvent;
 import com.marcos.payment.producer.PaymentProducer;
 import org.springframework.stereotype.Service;
 

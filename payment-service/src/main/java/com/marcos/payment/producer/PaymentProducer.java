@@ -1,6 +1,6 @@
 package com.marcos.payment.producer;
 
-import com.marcos.payment.model.PaymentEvent;
+import com.marcos.common.model.PaymentEvent;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 
