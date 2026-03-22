@@ -2,8 +2,9 @@ package com.marcos.common.mapper;
 
 import com.marcos.common.avro.AvroDecimalUtils;
 import com.marcos.common.domain.Payment;
-import com.marcos.common.event.PaymentEvent;
 import com.marcos.common.domain.PaymentStatus;
+import com.marcos.common.event.PaymentEvent;
+
 import java.time.Instant;
 import java.util.UUID;
 
@@ -23,7 +24,9 @@ public class PaymentEventMapper {
                                 : UUID.randomUUID().toString()
                 )
                 .setUserId(payment.getUserId())
+                .setOrderId(payment.getOrderId())
                 .setAmount(AvroDecimalUtils.convertToBytes(payment.getAmount()))
+                .setCurrency(payment.getCurrency())
                 .setStatus(payment.getStatus().name())
                 .setTimestamp(Instant.now().toEpochMilli())
                 .build();
