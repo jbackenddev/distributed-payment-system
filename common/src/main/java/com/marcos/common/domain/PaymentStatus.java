@@ -1,4 +1,4 @@
-package com.marcos.common.model;
+package com.marcos.common.domain;
 
 public enum PaymentStatus {
 

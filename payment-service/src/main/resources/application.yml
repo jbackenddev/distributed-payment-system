@@ -7,17 +7,9 @@ spring:
 
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
 
     properties:
+      schema.registry.url: http://localhost:8081
+      value.subject.name.strategy: io.confluent.kafka.serializers.subject.RecordNameStrategy
       spring.json.add.type.headers: false
-
-  datasource:
-    url: jdbc:postgresql://localhost:5432/payments
-    username: postgres
-    password: postgres
-
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true

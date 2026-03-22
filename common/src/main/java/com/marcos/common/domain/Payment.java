@@ -1,4 +1,4 @@
-package com.marcos.common.model;
+package com.marcos.common.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,19 +12,23 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class PaymentEvent {
+public class Payment {
 
     private String paymentId;
     private String userId;
+    private String orderId;
     private BigDecimal amount;
+    private String currency;
     private PaymentStatus status;
 
-    public static PaymentEvent build(String userId, BigDecimal amount) {
+    public static Payment build(String userId, String orderId, String currency, BigDecimal amount) {
         validate(amount);
 
-        return PaymentEvent.builder()
+        return Payment.builder()
                 .paymentId(UUID.randomUUID().toString())
                 .userId(userId)
+                .orderId(orderId)
+                .currency(currency)
                 .amount(amount)
                 .status(PaymentStatus.PENDING)
                 .build();

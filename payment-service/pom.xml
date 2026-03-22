@@ -15,6 +15,11 @@
     <artifactId>payment-service</artifactId>
 
     <dependencies>
+        <dependency>
+            <groupId>com.marcos.distributed</groupId>
+            <artifactId>common</artifactId>
+            <version>1.0.0</version>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -28,17 +33,7 @@
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-validation</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
         </dependency>
 
         <dependency>
@@ -47,9 +42,9 @@
         </dependency>
 
         <dependency>
-            <groupId>com.marcos.distributed</groupId>
-            <artifactId>common</artifactId>
-            <version>1.0.0</version>
+            <groupId>io.confluent</groupId>
+            <artifactId>kafka-avro-serializer</artifactId>
+            <version>7.5.0</version>
         </dependency>
     </dependencies>
 
@@ -77,5 +72,11 @@
 
         </plugins>
     </build>
-
+    <repositories>
+        <repository>
+            <id>confluent</id>
+            <name>Confluent</name>
+            <url>https://packages.confluent.io/maven/</url>
+        </repository>
+    </repositories>
 </project>
