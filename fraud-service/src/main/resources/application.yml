@@ -1,0 +1,30 @@
+server:
+  port: 8082
+
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+
+    consumer:
+      group-id: fraud-group
+      enable-auto-commit: false
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+
+    listener:
+      ack-mode: record
+
+    properties:
+      schema.registry.url: http://localhost:8081
+      specific.avro.reader: true
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/payments
+    username: postgres
+    password: postgres
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true

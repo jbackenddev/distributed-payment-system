@@ -1,0 +1,22 @@
+{
+  "type": "record",
+  "name": "PaymentEvent",
+  "namespace": "com.marcos.common.event",
+  "fields": [
+    { "name": "eventId", "type": "string" },
+    { "name": "userId", "type": "string" },
+    { "name": "orderId", "type": "string" },
+    {
+      "name": "amount",
+      "type": {
+        "type": "bytes",
+        "logicalType": "decimal",
+        "precision": 10,
+        "scale": 2
+      }
+    },
+    { "name": "currency", "type": "string" },
+    { "name": "status", "type": "string" },
+    { "name": "timestamp", "type": "long" }
+  ]
+}
