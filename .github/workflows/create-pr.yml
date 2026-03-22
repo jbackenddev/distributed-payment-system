@@ -3,7 +3,7 @@ name: Create PR from dev to main
 on:
   push:
     branches:
-      - dev
+      - develop
 
 jobs:
   create-pr:
@@ -16,7 +16,7 @@ jobs:
       - name: Create Pull Request
         uses: repo-sync/pull-request@v2
         with:
-          source_branch: dev
+          source_branch: develop
           destination_branch: main
           github_token: ${{ secrets.GITHUB_TOKEN }}
           pr_title: "Auto PR: dev → main"
