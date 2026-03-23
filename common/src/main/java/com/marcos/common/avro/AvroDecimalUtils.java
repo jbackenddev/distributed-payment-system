@@ -33,7 +33,7 @@ public class AvroDecimalUtils {
 
     public static ByteBuffer convertToBytes(double value) {
         return DECIMAL_CONVERSION.toBytes(
-                new BigDecimal(value),
+                BigDecimal.valueOf(value),
                 null,
                 DECIMAL_TYPE
         );

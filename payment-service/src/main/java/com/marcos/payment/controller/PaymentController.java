@@ -28,6 +28,6 @@ public class PaymentController {
 
         paymentService.createPayment(payment);
 
-        return ResponseEntity.ok("Payment event created");
+        return ResponseEntity.ok("Payment event created: " + payment.getPaymentId());
     }
 }

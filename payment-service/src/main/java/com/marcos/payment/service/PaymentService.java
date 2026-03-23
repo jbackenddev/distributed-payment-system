@@ -7,7 +7,6 @@ import com.marcos.common.mapper.PaymentEventMapper;
 import com.marcos.payment.entities.OutboxEvent;
 import com.marcos.payment.entities.OutboxEventStatus;
 import com.marcos.payment.entities.PaymentEntity;
-import com.marcos.payment.exception.PaymentEventSerializationException;
 import com.marcos.payment.mapper.PaymentEntityMapper;
 import com.marcos.payment.messaging.AvroDeserializer;
 import com.marcos.payment.repository.OutboxEventRepository;
@@ -45,13 +44,5 @@ public class PaymentService {
                         .createdAt(Instant.now())
                         .build()
         );
-    }
-
-    private String write(Object payload) {
-        try {
-            return objectMapper.writeValueAsString(payload);
-        } catch (Exception ex) {
-            throw new PaymentEventSerializationException("Exception trying to serialize", ex);
-        }
     }
 }
