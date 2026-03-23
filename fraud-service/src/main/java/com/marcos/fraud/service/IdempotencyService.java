@@ -1,6 +1,6 @@
 package com.marcos.fraud.service;
 
-import com.marcos.common.exceptions.EventAlreadyProcessedException;
+import com.marcos.fraud.exceptions.EventAlreadyProcessedException;
 import com.marcos.fraud.entities.ProcessedEvent;
 import com.marcos.fraud.repository.ProcessedEventRepository;
 import jakarta.transaction.Transactional;

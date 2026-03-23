@@ -1,0 +1,12 @@
+{
+  "type": "record",
+  "name": "FraudResultEvent",
+  "namespace": "com.marcos.common.event",
+  "fields": [
+    { "name": "eventId", "type": "string" },
+    { "name": "paymentId", "type": "string" },
+    { "name": "status", "type": "string" },
+    { "name": "reason", "type": ["null", "string"], "default": null },
+    { "name": "timestamp", "type": "long" }
+  ]
+}

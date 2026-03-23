@@ -2,8 +2,12 @@ server:
   port: 8080
 
 spring:
+  application:
+    name: payment-service
   kafka:
     bootstrap-servers: localhost:9092
+    listener:
+      observation-enabled: true
 
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
@@ -23,3 +27,28 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+
+management:
+  tracing:
+    enabled: true
+    sampling:
+      probability: 1.0
+
+  observations:
+    enable:
+      kafka: true
+
+  otlp:
+    tracing:
+      endpoint: http://localhost:4318/v1/traces
+
+logging:
+  pattern:
+    level: "%5p [traceId=%X{traceId}]"
+
+scheduler:
+  payment:
+    batch-size: 10
+    max-retry: 3
+    retry-delay: 10s
+    delay: 10s

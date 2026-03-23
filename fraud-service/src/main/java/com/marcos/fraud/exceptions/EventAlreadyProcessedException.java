@@ -1,4 +1,4 @@
-package com.marcos.common.exceptions;
+package com.marcos.fraud.exceptions;
 
 public class EventAlreadyProcessedException extends RuntimeException {
 
