@@ -27,8 +27,18 @@ public class OutboxEvent {
     @Enumerated(EnumType.STRING)
     private OutboxEventStatus status;
     private Instant createdAt;
+    private int retryCount;
+    private Instant nextRetryAt;
 
     public void changeStatus(OutboxEventStatus status) {
         this.status = status;
+    }
+
+    public void incrementRetryCount() {
+        this.retryCount++;
+    }
+
+    public void changeNextRetryAt(Instant nextRetryAt) {
+        this.nextRetryAt = nextRetryAt;
     }
 }

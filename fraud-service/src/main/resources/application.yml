@@ -2,17 +2,21 @@ server:
   port: 8082
 
 spring:
+  application:
+    name: fraud-service
   kafka:
     bootstrap-servers: localhost:9092
-
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
     consumer:
       group-id: fraud-group
       enable-auto-commit: false
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
-
     listener:
+      observation-enabled: true
       ack-mode: record
 
     properties:
@@ -28,3 +32,16 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+
+  otlp:
+    tracing:
+      endpoint: http://localhost:4318/v1/traces
+
+logging:
+  pattern:
+    level: "%5p [traceId=%X{traceId}]"

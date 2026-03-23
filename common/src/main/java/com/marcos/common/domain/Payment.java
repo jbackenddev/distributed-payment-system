@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
-import java.util.UUID;
 
 @Getter
 @NoArgsConstructor
@@ -24,8 +23,10 @@ public class Payment {
     public static Payment build(String userId, String orderId, String currency, BigDecimal amount) {
         validate(amount);
 
+        final String eventId = userId + orderId;
+
         return Payment.builder()
-                .paymentId(UUID.randomUUID().toString())
+                .paymentId(eventId)
                 .userId(userId)
                 .orderId(orderId)
                 .currency(currency)
